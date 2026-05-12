@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Wings & Brew Cafe</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#040101;
+      overflow-x:hidden;
+      color:white;
+    }
+
+    section{
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* ========================= */
+    /* HERO SECTION */
+    /* ========================= */
+
+    .hero{
+
+      width:100%;
+      height:100vh;
+
+      background:
+      linear-gradient(
+      rgba(0,0,0,0.72),
+      rgba(0,0,0,0.82)
+      ),
+      url('coffee image.jpg');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      perspective:1400px;
+    }
+
+    /* HERO GLOW */
+
+    .hero::before{
+
+      content:'';
+
+      position:absolute;
+
+      width:700px;
+      height:700px;
+
+      background:
+      radial-gradient(circle,
+      rgba(255,120,0,0.18),
+      transparent 70%);
+
+      filter:blur(90px);
+
+      animation:pulseGlow 5s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow{
+
+      0%,100%{
+        transform:scale(1);
+      }
+
+      50%{
+        transform:scale(1.15);
+      }
+
+    }
+
+    /* PARTICLES */
+
+    .particle{
+      position:absolute;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:#ffb347;
+      box-shadow:0 0 20px #ff9800;
+      animation:floatParticle linear infinite;
+    }
+
+    @keyframes floatParticle{
+
+      from{
+        transform:
+        translateY(100vh)
+        scale(0);
+      }
+
+      to{
+        transform:
+        translateY(-100vh)
+        scale(1.5);
+      }
+
+    }
+
+    /* HERO CONTENT */
+
+    .hero-content{
+
+      position:relative;
+      z-index:10;
+
+      text-align:center;
+
+      transform-style:preserve-3d;
+
+      transition:0.15s linear;
+
+      animation:heroFade 1.5s ease;
+    }
+
+    @keyframes heroFade{
+
+      from{
+        opacity:0;
+        transform:translateY(100px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0px);
+      }
+
+    }
+
+    .tag{
+
+      display:inline-block;
+
+      padding:12px 24px;
+
+      border-radius:50px;
+
+      background:rgba(255,255,255,0.08);
+
+      border:1px solid rgba(255,255,255,0.12);
+
+      backdrop-filter:blur(10px);
+
+      color:#ffcf70;
+
+      letter-spacing:2px;
+
+      margin-bottom:25px;
+    }
+
+    .hero-content h1{
+
+      font-size:7rem;
+      line-height:1;
+      font-weight:800;
+
+      margin-bottom:25px;
+
+      text-transform:uppercase;
+
+      color:white;
+
+      text-shadow:
+      0 0 10px rgba(255,170,0,0.45),
+      0 0 40px rgba(255,140,0,0.55),
+      0 0 80px rgba(255,140,0,0.35);
+
+      animation:floatText 4s ease-in-out infinite;
+    }
+
+    .hero-content h1 span{
+      color:#ffcf70;
+    }
+
+    @keyframes floatText{
+
+      0%,100%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-12px);
+      }
+
+    }
+
+    .hero-content p{
+
+      max-width:760px;
+
+      margin:auto;
+
+      font-size:1.2rem;
+
+      line-height:2;
+
+      color:rgba(255,255,255,0.82);
+
+      margin-bottom:40px;
+    }
+
+    /* BUTTONS */
+
+    .buttons{
+
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+
+      padding:18px 38px;
+
+      border:none;
+
+      border-radius:18px;
+
+      cursor:pointer;
+
+      font-size:1rem;
+      font-weight:700;
+
+      transition:0.5s;
+    }
+
+    .btn-primary{
+
+      background:
+      linear-gradient(
+      135deg,
+      #ffcf70,
+      #ff9800
+      );
+
+      color:black;
+
+      box-shadow:
+      0 20px 40px rgba(255,140,0,0.35);
+    }
+
+    .btn-secondary{
+
+      background:rgba(255,255,255,0.08);
+
+      color:white;
+
+      border:1px solid rgba(255,255,255,0.12);
+
+      backdrop-filter:blur(10px);
+    }
+
+    .btn:hover{
+
+      transform:
+      translateY(-10px)
+      scale(1.08);
+
+    }
+
+    /* ========================= */
+    /* SECOND SECTION */
+    /* ========================= */
+
+    .coffee-story-section{
+
+      width:100%;
+      min-height:100vh;
+
+      background:
+      linear-gradient(
+      135deg,
+      #010000,
+      #050201,
+      #120603,
+      #1b0904,
+      #090201
+      );
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      padding:120px 8%;
+
+      gap:50px;
+    }
+
+    /* COFFEE GLOW */
+
+    .coffee-story-section::before{
+
+      content:'';
+
+      position:absolute;
+
+      width:850px;
+      height:850px;
+
+      background:
+      radial-gradient(circle,
+      rgba(255,110,0,0.12),
+      transparent 70%);
+
+      top:-250px;
+      left:-200px;
+
+      filter:blur(120px);
+
+      animation:coffeeSmoke 10s ease-in-out infinite;
+    }
+
+    @keyframes coffeeSmoke{
+
+      0%,100%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(50px);
+      }
+
+    }
+
+    /* IMAGE AREA */
+
+    .story-image-area{
+
+      flex:1;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      perspective:2000px;
+    }
+
+    /* 3D CONTAINER */
+
+    .coffee-3d-container{
+
+      width:620px;
+      height:620px;
+
+      position:relative;
+
+      transform-style:preserve-3d;
+
+      animation:
+      floatingCoffee 6s ease-in-out infinite,
+      autoRotate 12s linear infinite;
+    }
+
+    @keyframes floatingCoffee{
+
+      0%,100%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-25px);
+      }
+
+    }
+
+    @keyframes autoRotate{
+
+      from{
+        rotate:y 0deg;
+      }
+
+      to{
+        rotate:y 360deg;
+      }
+
+    }
+
+    /* COFFEE IMAGE */
+
+    .coffee-img{
+
+      width:110%;
+
+      position:absolute;
+
+      left:-10px;
+      top:-70px;
+
+      object-fit:contain;
+
+      filter:
+      drop-shadow(0 50px 70px rgba(0,0,0,0.65))
+      drop-shadow(0 0 50px rgba(255,120,0,0.25));
+
+      transform-style:preserve-3d;
+    }
+
+    /* GLOW */
+
+    .coffee-glow{
+
+      position:absolute;
+
+      width:420px;
+      height:420px;
+
+      background:
+      radial-gradient(circle,
+      rgba(255,140,0,0.22),
+      transparent 70%);
+
+      left:50%;
+      top:50%;
+
+      transform:translate(-50%,-50%);
+
+      filter:blur(90px);
+
+      z-index:-1;
+    }
+
+    /* STORY */
+
+    .story-content{
+
+      flex:1;
+
+      position:relative;
+      z-index:5;
+    }
+
+    .story-tag{
+
+      display:inline-block;
+
+      padding:12px 24px;
+
+      border-radius:50px;
+
+      background:rgba(255,255,255,0.06);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      color:#ffcf70;
+
+      letter-spacing:2px;
+
+      margin-bottom:30px;
+
+      backdrop-filter:blur(10px);
+    }
+
+    .story-content h2{
+
+      font-size:5rem;
+
+      line-height:1.1;
+
+      margin-bottom:30px;
+
+      color:#ffcf70;
+
+      font-weight:800;
+
+      text-shadow:
+      0 0 20px rgba(255,170,0,0.35);
+
+      animation:textGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes textGlow{
+
+      0%,100%{
+        text-shadow:
+        0 0 15px rgba(255,170,0,0.25);
+      }
+
+      50%{
+        text-shadow:
+        0 0 35px rgba(255,170,0,0.55);
+      }
+
+    }
+
+    .story-content p{
+
+      color:rgba(255,255,255,0.78);
+
+      line-height:2.1;
+
+      margin-bottom:25px;
+
+      font-size:1.1rem;
+    }
+
+    .story-btn{
+
+      padding:18px 40px;
+
+      border:none;
+
+      border-radius:18px;
+
+      background:
+      linear-gradient(
+      135deg,
+      #ffcf70,
+      #ff9800
+      );
+
+      color:black;
+
+      font-size:1rem;
+      font-weight:700;
+
+      cursor:pointer;
+
+      transition:0.5s;
+
+      box-shadow:
+      0 20px 40px rgba(255,140,0,0.3);
+    }
+
+    .story-btn:hover{
+
+      transform:
+      translateY(-10px)
+      scale(1.05);
+
+    }
+
+    /* SCROLL ANIMATION */
+
+    .hidden{
+
+      opacity:0;
+
+      transition:
+      opacity 1.2s ease,
+      transform 1.2s ease;
+    }
+
+    .slide-left{
+      transform:translateX(-120px);
+    }
+
+    .slide-right{
+      transform:translateX(120px);
+    }
+
+    .zoom-in{
+      transform:scale(0.7);
+    }
+
+    .show{
+
+      opacity:1;
+      transform:translateX(0px) scale(1);
+
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1100px){
+
+      .coffee-story-section{
+
+        flex-direction:column;
+
+        text-align:center;
+      }
+
+      .hero-content h1{
+        font-size:4.5rem;
+      }
+
+      .story-content h2{
+        font-size:3.5rem;
+      }
+
+      .coffee-3d-container{
+        width:450px;
+        height:450px;
+      }
+
+      .coffee-img{
+        width:105%;
+        left:-5px;
+        top:-40px;
+      }
+
+    }
+
+    @media(max-width:700px){
+
+      .hero-content h1{
+        font-size:3rem;
+      }
+
+      .story-content h2{
+        font-size:2.5rem;
+      }
+
+      .coffee-3d-container{
+        width:320px;
+        height:320px;
+      }
+
+      .coffee-img{
+        width:110%;
+        left:-10px;
+        top:-25px;
+      }
+
+      .buttons{
+        flex-direction:column;
+        align-items:center;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+
+  <section class="hero" id="hero">
+
+    <div class="particle" style="left:10%; animation-duration:8s;"></div>
+    <div class="particle" style="left:20%; animation-duration:10s;"></div>
+    <div class="particle" style="left:35%; animation-duration:7s;"></div>
+    <div class="particle" style="left:50%; animation-duration:12s;"></div>
+    <div class="particle" style="left:65%; animation-duration:9s;"></div>
+    <div class="particle" style="left:80%; animation-duration:11s;"></div>
+
+    <div class="hero-content" id="heroContent">
+
+      <div class="tag">
+        PREMIUM 3D COFFEE EXPERIENCE
+      </div>
+
+      <h1>
+        Wings & <span>Brew</span>
+      </h1>
+
+      <p>
+        Every sip feels warm, smooth, rich, and comforting —
+        like a peaceful moment wrapped inside aromatic roasted coffee.
+      </p>
+
+      <div class="buttons">
+
+        <button class="btn btn-primary">
+          Explore Coffee
+        </button>
+
+        <button class="btn btn-secondary">
+          Visit Cafe
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SECOND PAGE -->
+
+  <section class="coffee-story-section">
+
+    <!-- IMAGE -->
+
+    <div class="story-image-area hidden slide-left">
+
+      <div class="coffee-3d-container" id="coffee3d">
+
+        <img src="coffee2.png" alt="Coffee Cup" class="coffee-img">
+
+        <div class="coffee-glow"></div>
+
+      </div>
+
+    </div>
+
+    <!-- STORY -->
+
+    <div class="story-content hidden slide-right">
+
+      <div class="story-tag">
+        OUR COFFEE STORY
+      </div>
+
+      <h2>
+        Every Coffee<br>
+        Has a Story.
+      </h2>
+
+      <p>
+        Coffee first began its journey in the ancient hills of Ethiopia,
+        where the aroma of roasted beans awakened people with warmth and energy.
+      </p>
+
+      <p>
+        At Wings & Brew Cafe, every cup is crafted to feel luxurious,
+        calming, rich, and unforgettable with every single sip.
+      </p>
+
+      <p>
+        More than just coffee, it is a moment of comfort,
+        creativity, passion, and peace.
+      </p>
+
+      <button class="story-btn">
+        Discover More
+      </button>
+
+    </div>
+
+  </section>
+
+  <script>
+
+    /* HERO 3D */
+
+    const hero =
+    document.getElementById('hero');
+
+    const heroContent =
+    document.getElementById('heroContent');
+
+    hero.addEventListener('mousemove',(e)=>{
+
+      const x =
+      (window.innerWidth/2 - e.pageX)/40;
+
+      const y =
+      (window.innerHeight/2 - e.pageY)/40;
+
+      heroContent.style.transform = `
+      rotateY(${x}deg)
+      rotateX(${-y}deg)
+      `;
+
+    });
+
+    /* COFFEE 3D */
+
+    const coffee3d =
+    document.getElementById('coffee3d');
+
+    document.addEventListener('mousemove',(e)=>{
+
+      const x =
+      (window.innerWidth/2 - e.pageX)/45;
+
+      const y =
+      (window.innerHeight/2 - e.pageY)/45;
+
+      coffee3d.style.transform = `
+      rotateY(${x}deg)
+      rotateX(${-y}deg)
+      translateY(-10px)
+      `;
+
+    });
+
+    /* SCROLL ANIMATION */
+
+    const observer =
+    new IntersectionObserver((entries)=>{
+
+      entries.forEach((entry)=>{
+
+        if(entry.isIntersecting){
+
+          entry.target.classList.add('show');
+
+        }
+
+      });
+
+    },{threshold:0.2});
+
+    const hiddenElements =
+    document.querySelectorAll('.hidden');
+
+    hiddenElements.forEach((el)=>{
+      observer.observe(el);
+    });
+
+  </script>
+
+</body>
+</html>
