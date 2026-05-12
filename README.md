@@ -116,24 +116,6 @@ https://github.com/jyothi-k05/basic_coffee-brand-website
 
 ---
 
-# 📸 Preview
-
-## Hero Section
-
-<p align="center">
-  <img src="hero-preview.png" width="100%">
-</p>
-
----
-
-## Coffee Story Section
-
-<p align="center">
-  <img src="story-preview.png" width="100%">
-</p>
-
----
-
 # 🎯 Future Improvements
 
 - ☕ Coffee Menu Section
