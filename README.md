@@ -63,7 +63,7 @@ A premium 3D coffee brand website built using HTML, CSS, and JavaScript featurin
 # 📂 Folder Structure
 
 ```bash
-Wings-And-Brew/
+basic_coffee-brand-website/
 │
 ├── index.html
 ├── coffee image.jpg
@@ -79,7 +79,7 @@ Wings-And-Brew/
 ## 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/wings-and-brew.git
+git clone https://github.com/jyothi-k05/basic_coffee-brand-website.git
 ```
 
 ---
@@ -108,13 +108,11 @@ Use **Live Server Extension** in VS Code for better experience.
 
 ---
 
-# 🌐 Deployment
+# 🌐 Live Project
 
-You can deploy this project easily using:
+Repository Link:
 
-- GitHub Pages
-- Netlify
-- Vercel
+https://github.com/jyothi-k05/basic_coffee-brand-website
 
 ---
 
@@ -154,7 +152,7 @@ Inspired by modern luxury cafe branding, cinematic coffee visuals, and immersive
 
 ---
 
-# 👨‍💻 Developed By
+# 👩‍💻 Developed By
 
 ## Jyo
 
